@@ -167,61 +167,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     
     
     @IBAction func onEarthToggle(sender: UIButton) {
-        let inputImage = CIImage(image:originalImage!)
-        
-        let filter = CIFilter(name:"CIColorClamp")
-        filter!.setValue(inputImage, forKey: kCIInputImageKey)
-        
-        let lowerLevel = CIVector(x: 0.1, y: 0.1, z: 0.3, w: 0)
-        filter!.setValue(lowerLevel, forKey: "inputMinComponents")
-        let upperLevel = CIVector(x: 0.5, y: 0.7, z: 0.9, w: 1)
-        filter!.setValue(upperLevel, forKey: "inputMaxComponents")
-        
-        filteredImage = UIImage(CGImage: context.createCGImage(filter!.outputImage!,
-            fromRect: filter!.outputImage!.extent), scale: originalImage!.scale, orientation: originalImage!.imageOrientation)
-        
-        isShowingOriginal = false
+        let filter = Filter()
+        filteredImage = filter.applyEarthFilter(originalImage!)
         imageView.image = filteredImage
+        isShowingOriginal = false
     }
     
     @IBAction func onFireToggle(sender: UIButton) {
-        
-        let inputImage = CIImage(image:originalImage!)
-        
-        let filter = CIFilter(name:"CIPhotoEffectFade")
-        filter!.setValue(inputImage, forKey: kCIInputImageKey)
-        
-        filteredImage = UIImage(CGImage: context.createCGImage(filter!.outputImage!,
-            fromRect: filter!.outputImage!.extent), scale: originalImage!.scale, orientation: originalImage!.imageOrientation)
-        
-        isShowingOriginal = false
+        let filter = Filter()
+        filteredImage = filter.applyFireFilter(originalImage!)
         imageView.image = filteredImage
+        isShowingOriginal = false
     }
     
     @IBAction func onWaterToggle(sender: UIButton) {
-        let inputImage = CIImage(image:originalImage!)
-        
-        let filter = CIFilter(name:"CIPhotoEffectProcess")
-        filter!.setValue(inputImage, forKey: kCIInputImageKey)
-        
-        filteredImage = UIImage(CGImage: context.createCGImage(filter!.outputImage!,
-            fromRect: filter!.outputImage!.extent), scale: originalImage!.scale, orientation: originalImage!.imageOrientation)
-        
-        isShowingOriginal = false
+        let filter = Filter()
+        filteredImage = filter.applyWaterFilter(originalImage!)
         imageView.image = filteredImage
+        isShowingOriginal = false
     }
     
     @IBAction func onAirToggle(sender: UIButton) {
-        let inputImage = CIImage(image:originalImage!)
-        
-        let filter = CIFilter(name:"CIPhotoEffectMono")
-        filter!.setValue(inputImage, forKey: kCIInputImageKey)
-        
-        filteredImage = UIImage(CGImage: context.createCGImage(filter!.outputImage!,
-            fromRect: filter!.outputImage!.extent), scale: originalImage!.scale, orientation: originalImage!.imageOrientation)
-        
-        isShowingOriginal = false
+        let filter = Filter()
+        filteredImage = filter.applyAirFilter(originalImage!)
         imageView.image = filteredImage
+        isShowingOriginal = false
     }
     
 }
