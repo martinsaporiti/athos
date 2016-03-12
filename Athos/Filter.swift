@@ -74,7 +74,7 @@ class Filter {
         filter!.setValue(1, forKey:"inputRadius")
         
         return UIImage(CGImage: context.createCGImage(filter!.outputImage!,
-                fromRect: filter!.outputImage!.extent))
+                fromRect: filter!.outputImage!.extent), scale: image.scale, orientation: image.imageOrientation)
     
     }
 }
