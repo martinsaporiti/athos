@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -31,7 +31,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNG-iB-cNz" userLabel="NewPhoto">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="44"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="44"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="Fdj-nc-ud1"/>
@@ -43,7 +43,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jr7-Ji-5PB" userLabel="Filter">
-                                                        <rect key="frame" x="120" y="0.0" width="120" height="44"/>
+                                                        <rect key="frame" x="100" y="0.0" width="100" height="44"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="hGX-h3-Eto"/>
@@ -54,8 +54,17 @@
                                                             <action selector="onFilterToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b2V-LY-QeC"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-Jl-6dw" userLabel="Vignette">
+                                                        <rect key="frame" x="200" y="0.0" width="100" height="44"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="V" backgroundImage="I"/>
+                                                        <connections>
+                                                            <action selector="onVignetteToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TyY-3A-6Wr"/>
+                                                        </connections>
+                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxs-i4-iOc" userLabel="Compare">
-                                                        <rect key="frame" x="240" y="0.0" width="120" height="44"/>
+                                                        <rect key="frame" x="300" y="0.0" width="100" height="44"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="Nct-ms-ey0"/>
@@ -67,7 +76,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAw-kX-CiQ" userLabel="Share">
-                                                        <rect key="frame" x="360" y="0.0" width="120" height="44"/>
+                                                        <rect key="frame" x="400" y="0.0" width="100" height="44"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="W5s-BJ-ZuS"/>
@@ -79,13 +88,13 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5n-1s-Fx7" userLabel="Post">
-                                                        <rect key="frame" x="480" y="0.0" width="120" height="44"/>
+                                                        <rect key="frame" x="500" y="0.0" width="100" height="44"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="jVa-Hp-qt6"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <state key="normal" image="post"/>
+                                                        <state key="normal" title="P"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -104,15 +113,19 @@
                                     <constraint firstItem="Eum-ZW-Y3X" firstAttribute="top" secondItem="UXX-2E-3Sy" secondAttribute="bottom" id="Ztf-zK-Xc8"/>
                                     <constraint firstAttribute="trailing" secondItem="UXX-2E-3Sy" secondAttribute="trailing" id="g9c-4e-Wv4"/>
                                     <constraint firstItem="UXX-2E-3Sy" firstAttribute="top" secondItem="p83-yL-uQL" secondAttribute="top" id="nMs-Eq-dHL"/>
+                                    <constraint firstItem="UXX-2E-3Sy" firstAttribute="top" secondItem="p83-yL-uQL" secondAttribute="top" id="t9k-FV-ioP"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="p83-yL-uQL" secondAttribute="bottom" id="Iez-gN-Jfu"/>
                             <constraint firstAttribute="trailing" secondItem="p83-yL-uQL" secondAttribute="trailing" id="XX7-Ez-7tb"/>
                             <constraint firstItem="p83-yL-uQL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="etR-ED-0HT"/>
+                            <constraint firstItem="p83-yL-uQL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jPj-vn-gcn"/>
                             <constraint firstItem="p83-yL-uQL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="m2W-nT-H2R"/>
+                            <constraint firstItem="p83-yL-uQL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="upv-Bq-eek"/>
                         </constraints>
                     </view>
                     <connections>
@@ -174,11 +187,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="I" width="1150" height="2048"/>
         <image name="athos" width="1150" height="2048"/>
         <image name="compare" width="44" height="44"/>
         <image name="filter" width="44" height="44"/>
         <image name="newPhoto" width="44" height="44"/>
-        <image name="post" width="44" height="44"/>
         <image name="share" width="44" height="44"/>
     </resources>
 </document>

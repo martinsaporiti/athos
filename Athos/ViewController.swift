@@ -194,5 +194,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         isShowingOriginal = false
     }
     
+    @IBAction func onVignetteToggle(sender: UIButton) {
+        let filter = Filter()
+        filteredImage = filter.applyVignette(filteredImage!)
+        imageView.image = filteredImage
+        isShowingOriginal = false
+    }
+    
 }
 

@@ -64,4 +64,17 @@ class Filter {
             fromRect: filter!.outputImage!.extent), scale: image.scale, orientation: image.imageOrientation)
     }
     
+    
+    func applyVignette(image: UIImage) -> UIImage {
+        let inputImage = CIImage(image: image)
+        
+        let filter = CIFilter(name:"CIVignette")
+        filter!.setValue(inputImage, forKey:kCIInputImageKey)
+        filter!.setValue(2.5, forKey:"inputIntensity")
+        filter!.setValue(1, forKey:"inputRadius")
+        
+        return UIImage(CGImage: context.createCGImage(filter!.outputImage!,
+                fromRect: filter!.outputImage!.extent))
+    
+    }
 }
