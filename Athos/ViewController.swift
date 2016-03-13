@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     var extent: CGRect!
     var scaleFactor: CGFloat!
     let context = CIContext(options: nil)
+    let filter: Filter = Filter()
     
     
     // Variables para elementos gráficos.
@@ -70,7 +71,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     
     // Acción que prende la cámara.
     func showCamera(){
-        hideSecondaryMenu()
+        hideFilterMenu()
         let cameraPicker = UIImagePickerController()
         cameraPicker.delegate = self
         cameraPicker.sourceType = .Camera
@@ -81,7 +82,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     
     // Acción que muestra la librería de fotos.
     func showAlbum(){
-        hideSecondaryMenu()
+        hideFilterMenu()
         let cameraPicker = UIImagePickerController()
         cameraPicker.delegate = self
         cameraPicker.sourceType = .PhotoLibrary
@@ -107,17 +108,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     */
     @IBAction func onFilterToggle(sender: UIButton) {
         if(sender.selected){
-            hideSecondaryMenu()
+            hideFilterMenu()
             sender.selected = false
         }else{
-            showSecondaryMenu()
+            showFilterMenu()
             sender.selected = true
         }
     }
     
     
     // Show the filter menu
-    func showSecondaryMenu(){
+    func showFilterMenu(){
         // Add de submenu
         view.addSubview(filterMenu)
         
@@ -138,7 +139,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     // Hide the Filter Menu.
-    func hideSecondaryMenu(){
+    func hideFilterMenu(){
         filterButton.selected = false
         UIView.animateWithDuration(0.4, animations: {
             self.filterMenu.alpha = 0
@@ -151,6 +152,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func onCompareToggle(sender: UIButton) {
+        hideFilterMenu()
         if (isShowingOriginal){
             imageView.image = filteredImage
             isShowingOriginal = false
@@ -161,41 +163,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func onShareToggle(sender: UIButton) {
+        hideFilterMenu()
         let activityController = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: nil)
         presentViewController(activityController, animated: true, completion: nil)
     }
     
     
     @IBAction func onEarthToggle(sender: UIButton) {
-        let filter = Filter()
         filteredImage = filter.applyEarthFilter(originalImage!)
         imageView.image = filteredImage
         isShowingOriginal = false
     }
     
     @IBAction func onFireToggle(sender: UIButton) {
-        let filter = Filter()
         filteredImage = filter.applyFireFilter(originalImage!)
         imageView.image = filteredImage
         isShowingOriginal = false
     }
     
     @IBAction func onWaterToggle(sender: UIButton) {
-        let filter = Filter()
         filteredImage = filter.applyWaterFilter(originalImage!)
         imageView.image = filteredImage
         isShowingOriginal = false
     }
     
     @IBAction func onAirToggle(sender: UIButton) {
-        let filter = Filter()
         filteredImage = filter.applyAirFilter(originalImage!)
         imageView.image = filteredImage
         isShowingOriginal = false
     }
     
     @IBAction func onVignetteToggle(sender: UIButton) {
-        let filter = Filter()
+        hideFilterMenu()
         filteredImage = filter.applyVignette(filteredImage!)
         imageView.image = filteredImage
         isShowingOriginal = false
