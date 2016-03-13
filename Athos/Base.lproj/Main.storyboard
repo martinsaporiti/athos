@@ -54,11 +54,13 @@
                                                             <action selector="onFilterToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b2V-LY-QeC"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-Jl-6dw" userLabel="Vignette">
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-Jl-6dw" userLabel="Vignette">
                                                         <rect key="frame" x="200" y="0.0" width="100" height="44"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <state key="normal" title="V" backgroundImage="I"/>
+                                                        <state key="normal" image="vignette">
+                                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="onVignetteToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TyY-3A-6Wr"/>
                                                         </connections>
@@ -94,7 +96,7 @@
                                                             <constraint firstAttribute="height" constant="44" id="jVa-Hp-qt6"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <state key="normal" title="P"/>
+                                                        <state key="normal" title="R"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -187,11 +189,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="I" width="1150" height="2048"/>
         <image name="athos" width="1150" height="2048"/>
         <image name="compare" width="44" height="44"/>
         <image name="filter" width="44" height="44"/>
         <image name="newPhoto" width="44" height="44"/>
         <image name="share" width="44" height="44"/>
+        <image name="vignette" width="24" height="24"/>
     </resources>
 </document>
