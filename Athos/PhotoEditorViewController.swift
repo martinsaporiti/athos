@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate,
+class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelegate,
                         UINavigationControllerDelegate {
 
     
@@ -36,9 +36,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         filterMenu.tintColor = UIColor.whiteColor()
         filterMenu.translatesAutoresizingMaskIntoConstraints = false
         scaleFactor = UIScreen.mainScreen().scale
-        originalImage = imageView.image
-        filteredImage =  imageView.image
+        //originalImage = imageView.image
+        filteredImage =  originalImage
         isShowingOriginal = true
+        imageView.image = originalImage
     }
 
     
@@ -47,6 +48,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         // Dispose of any resources that can be recreated.
     }
 
+    
+    //MARK: Navigation
+    
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        
+        navigationController!.popViewControllerAnimated(true)
+        
+        // Cambiar en si hay más acciones
+        
+        //let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        //if isPresentingInAddMealMode {
+            dismissViewControllerAnimated(true, completion: nil)
+        //}
+        //else {
+        //    navigationController!.popViewControllerAnimated(true)
+
+        //}
+    }
+
+    
+    
+    
 
     @IBAction func onNewPhotoToggle(sender: UIButton) {
         let actionSheet = UIAlertController(title: "New Photo", message: nil, preferredStyle: .ActionSheet)
