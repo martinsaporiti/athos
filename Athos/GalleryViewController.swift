@@ -112,7 +112,7 @@ class GalleryCollectionViewController: UIViewController, UICollectionViewDataSou
         
         
         let cropSideLength = CGFloat(min(asset.pixelWidth, asset.pixelHeight))
-        let square = CGRect(x: 0, y: 0, width: cropSideLength, height: cropSideLength)
+        let square = CGRect(x: 50, y: 50, width: cropSideLength, height: cropSideLength)
         
         options.normalizedCropRect = CGRectApplyAffineTransform(square, CGAffineTransformMakeScale(1.0 / CGFloat(asset.pixelWidth), 1.0 / CGFloat(asset.pixelHeight)))
         
